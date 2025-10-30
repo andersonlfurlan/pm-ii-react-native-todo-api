@@ -1,4 +1,4 @@
-import { IsBoolean, IsOptional, IsString, IsISO8601 } from 'class-validator';
+import { IsBoolean, IsOptional, IsString, IsISO8601, Max, MaxLength } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class CreateTaskDto {
@@ -7,6 +7,7 @@ export class CreateTaskDto {
   id?: string;
 
   @IsString()
+  @MaxLength(100, { message: "O campo deve ter no máximo 100 caracteres"})
   name: string;
 
   @IsOptional()
